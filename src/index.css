@@ -61,3 +61,8 @@
 	height: 20px;
 	border-radius: 4px;
 }
+
+.stop-scrolling {
+	height: 100%;
+	overflow: hidden;
+}
