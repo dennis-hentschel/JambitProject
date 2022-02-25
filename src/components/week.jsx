@@ -23,9 +23,9 @@ chartjs.register(
 	Legend
 );
 
-const data = JSON.parse('[{"date":"2022-W04","moods":[{"mood":4,"name":"Dennis"},{"mood":3,"name":"Kevin"},{"mood":3,"name":"Alexandros"},{"mood":2,"name":"Tobias"},{"mood":0,"name":"Andreas"}]},{"date":"2022-W05","moods":[{"mood":0,"name":"Dennis"},{"mood":0,"name":"Kevin"},{"mood":3,"name":"Alexandros"},{"mood":2,"name":"Tobias"},{"mood":0,"name":"Andreas"}]}]') 
+const data = JSON.parse('[{"date":"2022-W04","moods":[{"mood":4,"name":"Dennis","comment":"Ich fands ganz cool"},{"mood":3,"name":"Kevin","comment":"Joa war okay"},{"mood":3,"name":"Alexandros","comment": "Hatte schon bessere Wochen"},{"mood":2,"name":"Tobias","comment": "So super war\'s jetzt nicht"},{"mood":0,"name":"Andreas","comment": "Hätte jeden morgen gerne weitergeschlafen"}]},{"date":"2022-W05","moods":[{"mood":3,"name":"Dennis","comment": "War okay"},{"mood":2,"name":"Kevin","comment": "War nicht meine Woche"},{"mood":3,"name":"Alexandros","comment": "Es ging"},{"mood":2,"name":"Tobias","comment": "Es gab schon wieder stress wegen der letzten Cola"},{"mood":3,"name":"Andreas","comment": "besser als letzte Woche"}]},{"date":"2022-W06","moods":[{"mood":5,"name":"Dennis","comment": "Beste Woche ever!"},{"mood":2,"name":"Kevin","comment": "mein Kaffee kam kalt aus der Maschine"},{"mood":1,"name":"Alexandros","comment": "Kaffee war schlecht"},{"mood":2,"name":"Tobias","comment": "naja..."},{"mood":5,"name":"Andreas","comment": "Ich war richtig produktiv!"}]}]')
 
-const colours = [[255,0,0],[255,80],[255,190,0],[255,255,0],[170,255,0],[100,255,0]]
+const colours = [[255,0,0],[255,120,0],[255,170,0],[255,230,0],[180,230,0],[100,255,0]]
 const date = tools.get_url_parameter("date")
 
 function Week(){
@@ -97,14 +97,13 @@ function generate_colours(colour, date){
 }
 
 function render_chart(){
-	console.log("TEST")
 	const ctx = document.getElementById('week_chart').getContext('2d');
 	const week_chart = new chart.Chart(ctx, {
 		type: 'bar',
 		data: {
 			labels: get_data_as_array("name", date),
 			datasets: [{
-				label: 'Stimmung',
+				label: "Stimmung in KW " + date,
 				data: get_data_as_array("mood", date),
 				backgroundColor: generate_colours("background", date),
 				borderColor: generate_colours("", date),
@@ -120,9 +119,15 @@ function render_chart(){
 					bottom: 120,
 				}
 			},
+			plugins:{
+				legend:{
+					display: false
+				}
+			},
 			scales: {
 				y: {
-					beginAtZero: false
+					beginAtZero: true,
+					suggestedMax: 5
 				}
 			}
 		}
