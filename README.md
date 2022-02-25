@@ -1,9 +1,9 @@
 # README
 
-This is a tool to analyze and visualize the moods of the employees at [https://www.jambit.com](jambit).
+This is a tool to analyze and visualize the moods of the employees at [jambit](https://www.jambit.com).
 The language used in the entire project is German.
-The Author of this tool is [https://www.github.com/dennis-hentschel] (Dennis Hentschel).
-The only official source of the project is [https://www.github.com/dennis-hentschel/JambitProject] (The "JambitProject" repository) on github published by [https://www.github.com/dennis-hentschel] (Dennis Hentschel).
+The Author of this tool is [Dennis Hentschel](https://www.github.com/dennis-hentschel).
+The only official source of the project is [the "JambitProject" repository](https://www.github.com/dennis-hentschel/JambitProject) on github published by [Dennis Hentschel](https://www.github.com/dennis-hentschel).
 
 ## Available Scripts
 
